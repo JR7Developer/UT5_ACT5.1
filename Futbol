@@ -1,55 +1,163 @@
 package actividad5_1;
 
+import java.util.*;
+
 public class Main {
 
+	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
+
+		// Método para almacenar los jugadores del Manzanares.
+
+		jugadoresManzanares();
+
+		// Método para mostrar el menú y elegir opciones.
+
+		int opcion;
+		boolean fin = false;
+
+		do {
+
+			imprimirMenu();
+			opcion = sc.nextInt();
+
+			switch (opcion) {
+			case 1:
+
+				mostrarJugadoresPosicion();
+
+				break;
+
+			case 2:
+ 
+				break;
+
+			case 3:
+
+				break;
+
+			case 4:
+
+				break;
+
+			case 5:
+
+				break;
+
+			case 6:
+
+				break;
+
+			case 7:
+
+				break;
+
+			case 8:
+
+				salir();
+				fin = true;
+
+				break;
+
+			default:
+
+				break;
+			}
+
+		} while (fin == false);
+
+	}
+
+	private static void mostrarJugadoresPosicion() {
 		// TODO Auto-generated method stub
 		
-		// Método donde almaceno los jugadores del Manzanares.
-		
-		jugadoresManzanares();
-		
-		// Método para mostrar el menú.
-		
-		imprimirMenu();
+		System.out.println("Mostrando porteros...");
+
+		for (int i = 0; i < 1; i++) {
+			
+			if (Jugador.get(i).equals("Portero")) {
+				
+				System.out.println(jugadores);
+				
+			}
+
+		}
+
+	}
+
+	private static void salir() {
+
+		System.out.println("Saliendo del menu...");
 
 	}
 
 	private static void jugadoresManzanares() {
-		// TODO Auto-generated method stub
-		
+
 		// Porteros
-		
+
 		Jugador Antonio = new Jugador("Antonio", "Navarro", "Anto", 12, "Español", 2001, "Portero", 1000);
 		Jugador Dani = new Jugador("Dani", "Juarez", "Dani", 13, "Español", 1990, "Portero", 1000);
-		Jugador Javier = new Jugador("Javi", "Bule", "Javi", 18, "Español", 2007, "Portero", 1000);
-		
+		Jugador Javier = new Jugador("Javi", "Bule", "Javier", 18, "Español", 2007, "Portero", 1000);
+
 		// Cierres
-		
+
 		Jugador Pedro = new Jugador("Pedro", "Augusto", "Pedro", 16, "Brasileño", 1999, "Cierre", 1200);
 		Jugador Deivão = new Jugador("Deivão", "Pires", "Deivão", 21, "Brasileño", 1986, "Cierre", 1200);
 		Jugador Gallo = new Jugador("Everton", "Cardoso", "Gallo", 31, "Brasileño", 1987, "Cierre", 1200);
-		
+
 		// Alas
+
+		Jugador Juanma = new Jugador("Juan", "Rodriguez", "Juan", 7, "Argentina", 1992, "Ala", 1400);
+		Jugador Javi = new Jugador("Javi", "Alonso", "Javi", 8, "Español", 1993, "Ala", 1400);
+		Jugador Antoñito = new Jugador("Antonio", "Sierra", "Antoñito", 10, "Español", 1990, "Ala", 1400);
+		Jugador Alvaro = new Jugador("Alvaro", "Lopez", "Alvaro", 11, "España", 1995, "Ala", 1400);
+		Jugador Cortes = new Jugador("Francisco", "Jose", "Cortes", 20, "Español", 1995, "Ala", 1400);
+		Jugador Jose = new Jugador("Jose", "Joaquin", "Jose", 22, "Español", 2004, "Ala", 1400);
+
+		// Pivots
+
+		Jugador Daniel = new Jugador("Daniel", "Gabriel", "Dani", 9, "España", 1996, "Pivot", 1600);
+		Jugador Raul = new Jugador("Raul", "Campos", "Raul", 30, "Español", 1987, "Pivot", 1600);
+		Jugador Juan = new Jugador("Juan", "Emilio", "Juan", 99, "Español", 1997, "Pivot", 1600);
 		
-		Jugador Juan = new Jugador("Juan", "Rodriguez", "Juan", 7, "Argentina", 1992, "Ala", 1400);
-		Jugador Javi = new Jugador("Deivão", "Pires", "Deivão", 21, "Brasileño", 1986, "Cierre", 1200);
-		Jugador Antoñito = new Jugador("Everton", "Cardoso", "Gallo", 31, "Brasileño", 1987, "Cierre", 1200);
+		// ArrayList para almacenar Jugador.
 		
+		ArrayList<Jugador> jugadores = new ArrayList<>();
+		
+		jugadores.add(Antonio);
+		jugadores.add(Dani);
+		jugadores.add(Javier);
+		
+		jugadores.add(Pedro);
+		jugadores.add(Deivão);
+		jugadores.add(Gallo);
+		
+		jugadores.add(Juanma);
+		jugadores.add(Javi);
+		jugadores.add(Antoñito);
+		jugadores.add(Alvaro);
+		jugadores.add(Cortes);
+		jugadores.add(Jose);
+		
+		jugadores.add(Daniel);
+		jugadores.add(Raul);
+		jugadores.add(Juan);
+
 	}
 
 	private static void imprimirMenu() {
-		// TODO Auto-generated method stub
-		
+
+		System.out.println("Opciones del menu.");
 		System.out.println("1. Mostrar todos los jugadores agrupados por posición");
 		System.out.println("2. Mostrar información de un jugador en concreto");
-		System.out.println("3. Añadir un jugador nuevo"); // Pasar datos necesarios.
-		System.out.println("4. Despedir jugador existente"); // Introducir dorsal.
+		System.out.println("3. Añadir un jugador nuevo");
+		System.out.println("4. Despedir jugador existente");
 		System.out.println("5. Obtener edad media del equipo");
 		System.out.println("6. Obtener salario medio del equipo");
 		System.out.println("7. Obtener todas las nacionalidades existentes del equipo");
 		System.out.println("8. Salir");
-		
+		System.out.print("Opcion: ");
 	}
 
 }
