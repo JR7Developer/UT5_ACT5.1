@@ -8,29 +8,73 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// Método para almacenar los jugadores del Manzanares.
+		// Porteros.
 
-		jugadoresManzanares();
+		Jugador Antonio = new Jugador("Antonio", "Navarro", "Anto", 12, "Español", 2001, "Portero", 1000);
+		Jugador Dani = new Jugador("Dani", "Juarez", "Dani", 13, "Español", 1990, "Portero", 1000);
+		Jugador Javier = new Jugador("Javi", "Bule", "Javier", 18, "Español", 2007, "Portero", 1000);
 
-		// Método para mostrar el menú y elegir opciones.
+		// Cierres.
 
-		int opcion;
+		Jugador Pedro = new Jugador("Pedro", "Augusto", "Pedro", 16, "Brasileño", 1999, "Cierre", 1200);
+		Jugador Deivão = new Jugador("Deivão", "Pires", "Deivão", 21, "Brasileño", 1986, "Cierre", 1200);
+		Jugador Gallo = new Jugador("Everton", "Cardoso", "Gallo", 31, "Brasileño", 1987, "Cierre", 1200);
+
+		// Alas.
+
+		Jugador Juanma = new Jugador("Juan", "Rodriguez", "Juan", 7, "Argentina", 1992, "Ala", 1400);
+		Jugador Javi = new Jugador("Javi", "Alonso", "Javi", 8, "Español", 1993, "Ala", 1400);
+		Jugador Antoñito = new Jugador("Antonio", "Sierra", "Antoñito", 10, "Español", 1990, "Ala", 1400);
+		Jugador Alvaro = new Jugador("Alvaro", "Lopez", "Alvaro", 11, "España", 1995, "Ala", 1400);
+		Jugador Cortes = new Jugador("Francisco", "Jose", "Cortes", 20, "Español", 1995, "Ala", 1400);
+		Jugador Jose = new Jugador("Jose", "Joaquin", "Jose", 22, "Español", 2004, "Ala", 1400);
+
+		// Pivots.
+
+		Jugador Daniel = new Jugador("Daniel", "Gabriel", "Dani", 9, "España", 1996, "Pivot", 1600);
+		Jugador Raul = new Jugador("Raul", "Campos", "Raul", 30, "Español", 1987, "Pivot", 1600);
+		Jugador Juan = new Jugador("Juan", "Emilio", "Juan", 99, "Español", 1997, "Pivot", 1600);
+
+		// ArrayList para almacenar Jugador.
+
+		ArrayList<Jugador> jugadores = new ArrayList<>();
+
+		jugadores.add(Antonio);
+		jugadores.add(Dani);
+		jugadores.add(Javier);
+
+		jugadores.add(Pedro);
+		jugadores.add(Deivão);
+		jugadores.add(Gallo);
+
+		jugadores.add(Juanma);
+		jugadores.add(Javi);
+		jugadores.add(Antoñito);
+		jugadores.add(Alvaro);
+		jugadores.add(Cortes);
+		jugadores.add(Jose);
+
+		jugadores.add(Daniel);
+		jugadores.add(Raul);
+		jugadores.add(Juan);
+
+		// Menu para elegir opcion.
+
 		boolean fin = false;
-
 		do {
 
 			imprimirMenu();
-			opcion = sc.nextInt();
+			int opcion = sc.nextInt();
 
 			switch (opcion) {
 			case 1:
 
-				mostrarJugadoresPosicion();
+				mostrarJugadoresPosicion(jugadores);
 
 				break;
 
 			case 2:
- 
+
 				break;
 
 			case 3:
@@ -56,7 +100,6 @@ public class Main {
 			case 8:
 
 				salir();
-				fin = true;
 
 				break;
 
@@ -69,17 +112,61 @@ public class Main {
 
 	}
 
-	private static void mostrarJugadoresPosicion() {
+	private static void mostrarJugadoresPosicion(ArrayList<Jugador> jugadores) {
 		// TODO Auto-generated method stub
-		
-		System.out.println("Mostrando porteros...");
 
-		for (int i = 0; i < 1; i++) {
-			
-			if (Jugador.get(i).equals("Portero")) {
-				
-				System.out.println(jugadores);
-				
+		// Mostrar porteros.
+
+		System.out.println("-----MOSTRANDO PORTEROS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Portero")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar cierres.
+
+		System.out.println("-----MOSTRANDO CIERRES-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Cierre")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar alas.
+
+		System.out.println("-----MOSTRANDO ALAS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Ala")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar pivots.
+
+		System.out.println("-----MOSTRANDO PIVOTS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Pivot")) {
+
+				System.out.println(jugadores.get(i));
+
 			}
 
 		}
@@ -89,60 +176,6 @@ public class Main {
 	private static void salir() {
 
 		System.out.println("Saliendo del menu...");
-
-	}
-
-	private static void jugadoresManzanares() {
-
-		// Porteros
-
-		Jugador Antonio = new Jugador("Antonio", "Navarro", "Anto", 12, "Español", 2001, "Portero", 1000);
-		Jugador Dani = new Jugador("Dani", "Juarez", "Dani", 13, "Español", 1990, "Portero", 1000);
-		Jugador Javier = new Jugador("Javi", "Bule", "Javier", 18, "Español", 2007, "Portero", 1000);
-
-		// Cierres
-
-		Jugador Pedro = new Jugador("Pedro", "Augusto", "Pedro", 16, "Brasileño", 1999, "Cierre", 1200);
-		Jugador Deivão = new Jugador("Deivão", "Pires", "Deivão", 21, "Brasileño", 1986, "Cierre", 1200);
-		Jugador Gallo = new Jugador("Everton", "Cardoso", "Gallo", 31, "Brasileño", 1987, "Cierre", 1200);
-
-		// Alas
-
-		Jugador Juanma = new Jugador("Juan", "Rodriguez", "Juan", 7, "Argentina", 1992, "Ala", 1400);
-		Jugador Javi = new Jugador("Javi", "Alonso", "Javi", 8, "Español", 1993, "Ala", 1400);
-		Jugador Antoñito = new Jugador("Antonio", "Sierra", "Antoñito", 10, "Español", 1990, "Ala", 1400);
-		Jugador Alvaro = new Jugador("Alvaro", "Lopez", "Alvaro", 11, "España", 1995, "Ala", 1400);
-		Jugador Cortes = new Jugador("Francisco", "Jose", "Cortes", 20, "Español", 1995, "Ala", 1400);
-		Jugador Jose = new Jugador("Jose", "Joaquin", "Jose", 22, "Español", 2004, "Ala", 1400);
-
-		// Pivots
-
-		Jugador Daniel = new Jugador("Daniel", "Gabriel", "Dani", 9, "España", 1996, "Pivot", 1600);
-		Jugador Raul = new Jugador("Raul", "Campos", "Raul", 30, "Español", 1987, "Pivot", 1600);
-		Jugador Juan = new Jugador("Juan", "Emilio", "Juan", 99, "Español", 1997, "Pivot", 1600);
-		
-		// ArrayList para almacenar Jugador.
-		
-		ArrayList<Jugador> jugadores = new ArrayList<>();
-		
-		jugadores.add(Antonio);
-		jugadores.add(Dani);
-		jugadores.add(Javier);
-		
-		jugadores.add(Pedro);
-		jugadores.add(Deivão);
-		jugadores.add(Gallo);
-		
-		jugadores.add(Juanma);
-		jugadores.add(Javi);
-		jugadores.add(Antoñito);
-		jugadores.add(Alvaro);
-		jugadores.add(Cortes);
-		jugadores.add(Jose);
-		
-		jugadores.add(Daniel);
-		jugadores.add(Raul);
-		jugadores.add(Juan);
 
 	}
 
