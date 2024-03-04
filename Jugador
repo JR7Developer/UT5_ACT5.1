@@ -1,97 +1,331 @@
-package actividad5_1;
+package Actividad5_1;
 
-public class Jugador {
+import java.util.*;
 
-    private String nombre;
-    private String apellido;
-    private String apodo;
-    private int dorsal;
-    private String nacionalidad;
-    private int fecha_nacimiento;
-    private String posicion;
-    private int salario;
-    
-    public Jugador(String nombre, String apellido, String apodo, int dorsal, String nacionalidad, int fecha_nacimiento,
-            String posicion, int salario) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.apodo = apodo;
-        this.dorsal = dorsal;
-        this.nacionalidad = nacionalidad;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.posicion = posicion;
-        this.salario = salario;
-    }
+public class Main {
 
-    public String getNombre() {
-        return nombre;
-    }
+	static Scanner sc = new Scanner(System.in);
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public static void main(String[] args) {
 
-    public String getApellido() {
-        return apellido;
-    }
+		// Porteros.
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+		Jugador Antonio = new Jugador("Antonio", "Navarro", 22, "Anto", 12, "Español", 2001, "Portero", 1000);
+		Jugador Dani = new Jugador("Dani", "Juarez", 33, "Dani", 13, "Español", 1990, "Portero", 1000);
+		Jugador Javier = new Jugador("Javi", "Bule", 16, "Javier", 18, "Español", 2007, "Portero", 1000);
 
-    public String getApodo() {
-        return apodo;
-    }
+		// Cierres.
 
-    public void setApodo(String apodo) {
-        this.apodo = apodo;
-    }
+		Jugador Pedro = new Jugador("Pedro", "Augusto", 25, "Pedro", 16, "Brasileño", 1999, "Cierre", 1200);
+		Jugador Deivão = new Jugador("Deivão", "Pires", 37, "Deivão", 21, "Brasileño", 1986, "Cierre", 1200);
+		Jugador Gallo = new Jugador("Everton", "Cardoso", 36, "Gallo", 31, "Brasileño", 1987, "Cierre", 1200);
 
-    public int getDorsal() {
-        return dorsal;
-    }
+		// Alas.
 
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
-    }
+		Jugador Juanma = new Jugador("Juan", "Rodriguez", 32, "Juan", 7, "Argentino", 1992, "Ala", 1400);
+		Jugador Javi = new Jugador("Javi", "Alonso", 30, "Javi", 8, "Español", 1993, "Ala", 1400);
+		Jugador Antoñito = new Jugador("Antonio", "Sierra", 33, "Antoñito", 10, "Español", 1990, "Ala", 1400);
+		Jugador Alvaro = new Jugador("Alvaro", "Lopez", 28, "Alvaro", 11, "Español", 1995, "Ala", 1400);
+		Jugador Cortes = new Jugador("Francisco", "Jose", 28, "Cortes", 20, "Español", 1995, "Ala", 1400);
+		Jugador Jose = new Jugador("Jose", "Joaquin", 19, "Jose", 22, "Español", 2004, "Ala", 1400);
 
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
+		// Pivots.
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
+		Jugador Daniel = new Jugador("Daniel", "Gabriel", 27, "Dani", 9, "Español", 1996, "Pivot", 1600);
+		Jugador Raul = new Jugador("Raul", "Campos", 36, "Raul", 30, "Español", 1987, "Pivot", 1600);
+		Jugador Juan = new Jugador("Juan", "Emilio", 27, "Juan", 99, "Español", 1997, "Pivot", 1600);
 
-    public int getFecha_nacimiento() {
-        return fecha_nacimiento;
-    }
+		// ArrayList para almacenar Jugador.
 
-    public void setFecha_nacimiento(int fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
+		ArrayList<Jugador> jugadores = new ArrayList<>();
 
-    public String getPosicion() {
-        return posicion;
-    }
+		jugadores.add(Antonio);
+		jugadores.add(Dani);
+		jugadores.add(Javier);
 
-    public void setPosicion(String posicion) {
-        this.posicion = posicion;
-    }
+		jugadores.add(Pedro);
+		jugadores.add(Deivão);
+		jugadores.add(Gallo);
 
-    public int getSalario() {
-        return salario;
-    }
+		jugadores.add(Juanma);
+		jugadores.add(Javi);
+		jugadores.add(Antoñito);
+		jugadores.add(Alvaro);
+		jugadores.add(Cortes);
+		jugadores.add(Jose);
 
-    public void setSalario(int salario) {
-        this.salario = salario;
-    }
+		jugadores.add(Daniel);
+		jugadores.add(Raul);
+		jugadores.add(Juan);
 
-    @Override
-    public String toString() {
-        return "Jugador [nombre=" + nombre + ", apellido=" + apellido + ", apodo=" + apodo + ", dorsal=" + dorsal
-                + ", nacionalidad=" + nacionalidad + ", fecha_nacimiento=" + fecha_nacimiento + ", posicion=" + posicion
-                + ", salario=" + salario + "]";
-    }
+		// Menu para elegir opcion.
+
+		boolean fin = false;
+
+		do {
+
+			imprimirMenu();
+			int opcion = sc.nextInt();
+
+			switch (opcion) {
+				case 1:
+
+					mostrarJugadoresPosicion(jugadores);
+
+					break;
+
+				case 2:
+
+					mostrarInformacionJugadore(jugadores);
+
+					break;
+
+				case 3:
+
+					añadirNuevoJugador(jugadores);
+
+					break;
+
+				case 4:
+
+					despedirJugador(jugadores);
+
+					break;
+
+				case 5:
+
+					obtenerEdadMedia(jugadores);
+
+					break;
+
+				case 6:
+
+					obtenerSalarioMedio(jugadores);
+
+					break;
+
+				case 7:
+
+					obtenerNacionalidades(jugadores);
+
+					break;
+
+				case 8:
+
+					salir();
+					fin = true;
+
+					break;
+
+				default:
+
+					break;
+			}
+
+		} while (fin == false);
+
+	}
+
+	private static void obtenerNacionalidades(ArrayList<Jugador> jugadores) {
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			System.out.println(jugadores.get(i).getNacionalidad());
+
+		}
+
+	}
+
+	private static void obtenerSalarioMedio(ArrayList<Jugador> jugadores) {
+
+		int salario = 0;
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			salario += jugadores.get(i).getSalario();
+
+		}
+
+		int salarioMedio = salario / jugadores.size();
+
+		System.out.println("Salario medio: " + salarioMedio);
+
+	}
+
+	private static void obtenerEdadMedia(ArrayList<Jugador> jugadores) {
+
+		int edad = 0;
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			edad += jugadores.get(i).getEdad();
+
+		}
+
+		int edadMedia = edad / jugadores.size();
+
+		System.out.println("Edad media: " + edadMedia);
+
+	}
+
+	private static void despedirJugador(ArrayList<Jugador> jugadores) {
+
+		System.out.println("Introduce el dorsal del jugador al que quieres despedir.");
+		int dorsal = sc.nextInt();
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getDorsal() == dorsal) {
+
+				System.out.println("Jugador despedido...");
+				System.out.println(jugadores.get(i));
+				jugadores.remove(i);
+				i--;
+
+			}
+
+		}
+
+		System.out.println("-----ALINEACIÓN ACTUAL-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			System.out.println(jugadores.get(i));
+
+		}
+
+	}
+
+	private static void añadirNuevoJugador(ArrayList<Jugador> jugadores) {
+
+		System.out.println("-----Añadiendo nuevo jugador... Introduce sus datos.-----");
+
+		System.out.println("Introduce el nombre");
+		String nombre = sc.next();
+		nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+		System.out.println("Introduce el apellido");
+		String apellido = sc.next();
+		apellido = apellido.substring(0, 1).toUpperCase() + apellido.substring(1);
+		System.out.println("Introduce tu edad");
+		int edad = sc.nextInt();
+		System.out.println("Introduce el apodo");
+		String apodo = sc.next();
+		apodo = apodo.substring(0, 1).toUpperCase() + apodo.substring(1);
+		System.out.println("Introduce el dorsal");
+		int dorsal = sc.nextInt();
+		System.out.println("Introduce la nacionalidad");
+		String nacionalidad = sc.next();
+		System.out.println("Introduce el año de nacimiento");
+		int fecha_nacimiento = sc.nextInt();
+		System.out.println("Introduce la posicion");
+		String posicion = sc.next();
+		posicion = posicion.substring(0, 1).toUpperCase() + posicion.substring(1);
+		System.out.println("Introduce el salario");
+		int salario = sc.nextInt();
+
+		Jugador nuevoJugador = new Jugador(nombre, apellido, edad, apodo, dorsal, nacionalidad, fecha_nacimiento,
+				posicion, salario);
+
+		jugadores.add(nuevoJugador);
+
+	}
+
+	private static void mostrarInformacionJugadore(ArrayList<Jugador> jugadores) {
+
+		System.out.println("Escribe el nombre del jugador");
+		String nombre = sc.next();
+		nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getNombre().equals(nombre)) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+	}
+
+	private static void mostrarJugadoresPosicion(ArrayList<Jugador> jugadores) {
+
+		// Mostrar porteros.
+
+		System.out.println("-----MOSTRANDO PORTEROS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Portero")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar cierres.
+
+		System.out.println("-----MOSTRANDO CIERRES-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Cierre")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar alas.
+
+		System.out.println("-----MOSTRANDO ALAS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Ala")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+		// Mostrar pivots.
+
+		System.out.println("-----MOSTRANDO PIVOTS-----");
+
+		for (int i = 0; i < jugadores.size(); i++) {
+
+			if (jugadores.get(i).getPosicion().equals("Pivot")) {
+
+				System.out.println(jugadores.get(i));
+
+			}
+
+		}
+
+	}
+
+	private static void salir() {
+
+		System.out.println("Saliendo del menu...");
+
+	}
+
+	private static void imprimirMenu() {
+
+		System.out.println("Opciones del menu.");
+		System.out.println("1. Mostrar todos los jugadores agrupados por posición");
+		System.out.println("2. Mostrar información de un jugador en concreto");
+		System.out.println("3. Añadir un jugador nuevo");
+		System.out.println("4. Despedir jugador existente");
+		System.out.println("5. Obtener edad media del equipo");
+		System.out.println("6. Obtener salario medio del equipo");
+		System.out.println("7. Obtener todas las nacionalidades existentes del equipo");
+		System.out.println("8. Salir");
+		System.out.print("Opcion: ");
+	}
 
 }
